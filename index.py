@@ -6,3 +6,5 @@ from sklearn.metrics import classification_report
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+
+# Load the mnist fashion dataset
