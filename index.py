@@ -72,11 +72,12 @@ print("\n✓ Matriz de confusión de Random Forest guardada.")
 # ¡ADVERTENCIA: EXTREMADAMENTE LENTO CON TODOS LOS DATOS!
 # Para ejecutar esta sección, elimina las triples comillas de abajo y arriba.
 # -----------------------------------------------------------------------------
+"""
 print("\n--- INICIANDO BÚSQUEDA PARA SVM ---")
 param_grid_svm = {
     'C': [1, 10],
     'gamma': [0.1, 0.01],
-    'kernel': ['rbf']
+    'kernel': ['rbf'] # aca tambien se deberian probar otros kernels como 'linear', 'poly', etc. pero me dio cosa pq tardaba demasiado 
 }
 svm = SVC(random_state=42)
 grid_search_svm = GridSearchCV(estimator=svm, param_grid=param_grid_svm, cv=3, n_jobs=-1, verbose=2)
@@ -95,12 +96,12 @@ plt.title('Matriz de Confusión - SVM')
 plt.ylabel('Etiqueta Verdadera'); plt.xlabel('Etiqueta Predicha')
 plt.savefig('matrizDeConfusionSVM.png')
 print("\n✓ Matriz de confusión de SVM guardada.")
-
+"""
 # -----------------------------------------------------------------------------
 # --- SECCIÓN PRINCIPAL: K-NEAREST NEIGHBORS (K-NN) ---
 # ¡ADVERTENCIA: MUY LENTO CON TODOS LOS DATOS!
 # -----------------------------------------------------------------------------
-"""
+#"""
 print(f"\n--- INICIANDO BÚSQUEDA PARA K-NN ---")
 # Definimos el rango de 'k' (n_neighbors) que queremos probar
 param_grid_knn = {
@@ -145,6 +146,32 @@ plt.yticks(rotation=0)
 plt.tight_layout()
 
 # Guardamos la nueva imagen
-plt.savefig('matriz_de_confusion_KNN.png')
+plt.savefig('matrizDeConfusionKNN.png')
 print("\n✓ Matriz de confusión de K-NN guardada como 'matrizDeConfusionKNN.png'")
+#"""
+
+
+
+""" SI es que quieren probar a usar todos los parametros de SVM esta seria la manera correcta
+# Ejemplo de un param_grid para probar múltiples kernels
+param_grid_svm_completo = [
+    {
+        'kernel': ['rbf'], 
+        'C': [1, 10], 
+        'gamma': [0.1, 0.01]
+    },
+    {
+        'kernel': ['linear'], 
+        'C': [1, 10]
+    },
+    {
+        'kernel': ['poly'], 
+        'C': [1, 10], 
+        'degree': [2, 3] # Grado del polinomio
+    }
+]
+
+# Luego lo pasarías a GridSearchCV
+# grid_search = GridSearchCV(svm, param_grid_svm_completo, ...)
+
 """
