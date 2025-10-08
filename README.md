@@ -34,7 +34,7 @@ Son 10 clases:
 Los mejores hiperparametros que encontre con random forest fueron:
 {'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 150}
 
----- Reporte de Clasificación (Prueba) ----
+--- Reporte de Clasificación (Prueba) ---
               precision    recall  f1-score   support
 
  T-shirt/top       0.82      0.86      0.84      1000
