@@ -105,7 +105,7 @@ print("\n✓ Matriz de confusión de SVM guardada.")
 print(f"\n--- INICIANDO BÚSQUEDA PARA K-NN ---")
 # Definimos el rango de 'k' (n_neighbors) que queremos probar
 param_grid_knn = {
-    'n_neighbors': [3, 5, 7] # Rango reducido para acelerar un poco
+    'n_neighbors': [3, 5, 7, 9, 11] # Rango reducido para acelerar un poco
 }
 
 # Inicializamos el clasificador K-NN
