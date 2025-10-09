@@ -11,7 +11,7 @@ import time
 
 # =========================== CONFIGURACIÓN ====================================
 # Define la cantidad de procesadores que se usarán para el cómputo en paralelo
-nProcesos = 1
+nProcesos = 14
 
 # ======================= FUNCIONES DE EVALUACIÓN ==============================
 def evaluarRf(args):
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     
     xTrain = xTrain / 255.0
     xTest = xTest / 255.0
-
+    """
     # ========= 1. BÚSQUEDA PARA RANDOM FOREST =========
     print("Iniciando búsqueda para Random Forest...")
     
@@ -124,8 +124,8 @@ if __name__ == '__main__':
     print(f"\nTiempo total: {round(finRf - inicioRf, 2)} segundos")
     print("--------------------------------\n")
 
-
     """
+    #"""
     # ========= 2. BÚSQUEDA PARA SVM =========
     print("Iniciando búsqueda para SVM...")
 
@@ -163,4 +163,45 @@ if __name__ == '__main__':
         
     print(f"\nTiempo total: {round(finSvm - inicioSvm, 2)} segundos")
     print("----------------------\n")
-    """
+#"""
+
+"""
+    # ========= 3. BÚSQUEDA PARA KNN =========
+    print("Iniciando búsqueda para KNN...")
+
+    hiperparametrosKnn = {
+        'n_neighbors': [3, 5, 7, 9],
+        'weights': ['uniform', 'distance'],
+        'metric': ['euclidean', 'manhattan']
+    }
+
+    tareasKnn = []
+    print("Generando combinaciones de hiperparámetros para KNN...")
+    for nNeighbors in hiperparametrosKnn['n_neighbors']:
+        for weights in hiperparametrosKnn['weights']:
+            for metric in hiperparametrosKnn['metric']:
+                parametros = {
+                    'n_neighbors': nNeighbors,
+                    'weights': weights,
+                    'metric': metric
+                }
+                tareasKnn.append((parametros, xTrain, xTest, yTrain, yTest))
+    
+    inicioKnn = time.time()
+    print(f"Iniciando cómputo en paralelo con {len(tareasKnn)} tareas...")
+    with Pool(processes=nProcesos) as pool:
+        resultadosKnn = list(tqdm(pool.imap(evaluarKnn, tareasKnn), total=len(tareasKnn)))
+    finKnn = time.time()
+
+    mejorKnn = max(resultadosKnn, key=lambda item: item[1]['accuracy'])
+    print("\n--- RESULTADOS KNN ---")
+    print(f"Mejores Hiperparámetros: {mejorKnn[0]}")
+    
+    print("\nMétricas del Mejor Modelo:")
+    for metrica, valor in mejorKnn[1].items():
+        print(f"  - {metrica.replace('_', ' ').capitalize()}: {valor:.4f}")
+        
+    print(f"\nTiempo total: {round(finKnn - inicioKnn, 2)} segundos")
+    print("----------------------\n")
+
+"""

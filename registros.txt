@@ -1,1 +1,70 @@
 random forest con 1 procesador
+
+iciando cómputo en paralelo con 144 tareas...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 144/144 [2:59:47<00:00, 74.91s/it]
+
+--- RESULTADOS RANDOM FOREST ---
+Mejores Hiperparámetros: {'n_estimators': 250, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.8820
+  - F1 score: 0.8815
+  - Precision: 0.8820
+  - Recall: 0.8837
+
+Tiempo total: 10787.85 segundos
+--------------------------------
+
+
+ahora con 4 procesadores:
+
+Iniciando cómputo en paralelo con 144 tareas...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 144/144 [50:29<00:00, 21.04s/it]
+
+--- RESULTADOS RANDOM FOREST ---
+Mejores Hiperparámetros: {'n_estimators': 250, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.8820
+  - F1 score: 0.8815
+  - Precision: 0.8820
+  - Recall: 0.8837
+
+Tiempo total: 3029.81 segundos
+--------------------------------
+
+Ahora con 8
+Iniciando búsqueda para Random Forest...
+Generando combinaciones de hiperparámetros para RF...
+Iniciando cómputo en paralelo con 144 tareas...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 144/144 [30:13<00:00, 12.59s/it]
+
+--- RESULTADOS RANDOM FOREST ---
+Mejores Hiperparámetros: {'n_estimators': 250, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.8820
+  - F1 score: 0.8815
+  - Precision: 0.8820
+  - Recall: 0.8837
+
+Tiempo total: 1814.13 segundos
+--------------------------------
+
+Ahora con 14
+Iniciando búsqueda para Random Forest...
+Generando combinaciones de hiperparámetros para RF...
+Iniciando cómputo en paralelo con 144 tareas...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 144/144 [25:22<00:00, 10.57s/it]
+
+--- RESULTADOS RANDOM FOREST ---
+Mejores Hiperparámetros: {'n_estimators': 250, 'max_depth': None, 'min_samples_split': 2, 'min_samples_leaf': 1}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.8820
+  - F1 score: 0.8815
+  - Precision: 0.8820
+  - Recall: 0.8837
+
+Tiempo total: 1523.28 segundos
+--------------------------------
