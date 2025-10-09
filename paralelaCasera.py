@@ -1,4 +1,10 @@
 # Librerías
+import os
+
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
 import pandas as pd
 from multiprocessing import Pool
 from sklearn.svm import SVC
@@ -9,9 +15,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from tqdm import tqdm
 import time
 
+
 # =========================== CONFIGURACIÓN ====================================
 # Define la cantidad de procesadores que se usarán para el cómputo en paralelo
-nProcesos = 14
+nProcesos = 8
 
 # ======================= FUNCIONES DE EVALUACIÓN ==============================
 def evaluarRf(args):
@@ -83,7 +90,8 @@ if __name__ == '__main__':
     """
     # ========= 1. BÚSQUEDA PARA RANDOM FOREST =========
     print("Iniciando búsqueda para Random Forest...")
-    
+    print("Iniciando búsqueda para KNN...")
+
     hiperparametrosRf = {
         'n_estimators': [100, 150, 200, 250],
         'max_depth': [10, 20, None],
@@ -131,7 +139,7 @@ if __name__ == '__main__':
 
     hiperparametrosSvm = {
         'kernel': ['rbf', 'poly'],
-        'C': [0.1, 1, 10],
+        'C': [0.1, 1, 5,10],
         'gamma': ['scale', 'auto']
     }
 
@@ -163,16 +171,16 @@ if __name__ == '__main__':
         
     print(f"\nTiempo total: {round(finSvm - inicioSvm, 2)} segundos")
     print("----------------------\n")
-#"""
+    #"""
 
-"""
+    """
     # ========= 3. BÚSQUEDA PARA KNN =========
     print("Iniciando búsqueda para KNN...")
 
     hiperparametrosKnn = {
-        'n_neighbors': [3, 5, 7, 9],
+        'n_neighbors': [3, 5, 7, 9, 11, 13],
         'weights': ['uniform', 'distance'],
-        'metric': ['euclidean', 'manhattan']
+        'metric': ['euclidean', 'manhattan', 'minkowski']
     }
 
     tareasKnn = []
@@ -203,5 +211,4 @@ if __name__ == '__main__':
         
     print(f"\nTiempo total: {round(finKnn - inicioKnn, 2)} segundos")
     print("----------------------\n")
-
-"""
+    """

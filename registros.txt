@@ -68,3 +68,77 @@ Métricas del Mejor Modelo:
 
 Tiempo total: 1523.28 segundos
 --------------------------------
+
+
+
+
+AHORA KNN
+1 procesador
+Iniciando cómputo en paralelo con 36 tareas...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 36/36 [1:10:49<00:00, 118.03s/it]
+
+--- RESULTADOS KNN ---
+Mejores Hiperparámetros: {'n_neighbors': 5, 'weights': 'distance', 'metric': 'manhattan'}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.8632
+  - F1 score: 0.8641
+  - Precision: 0.8657
+  - Recall: 0.8646
+
+Tiempo total: 4249.6 segundos
+----------------------
+
+4 procesadores
+Iniciando búsqueda para KNN...
+Generando combinaciones de hiperparámetros para KNN...
+Iniciando cómputo en paralelo con 36 tareas...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 36/36 [20:55<00:00, 34.89s/it]
+
+--- RESULTADOS KNN ---
+Mejores Hiperparámetros: {'n_neighbors': 5, 'weights': 'distance', 'metric': 'manhattan'}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.8632
+  - F1 score: 0.8641
+  - Precision: 0.8657
+  - Recall: 0.8646
+
+Tiempo total: 1256.07 segundos
+----------------------
+
+8 procesadores
+Iniciando búsqueda para KNN...
+Generando combinaciones de hiperparámetros para KNN...
+Iniciando cómputo en paralelo con 36 tareas...
+  3%|███▉                                                                                                                                         | 1/36 [00:42<24:34, 42.12s/it]100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 36/36 [16:36<00:00, 27.68s/it]
+
+--- RESULTADOS KNN ---
+Mejores Hiperparámetros: {'n_neighbors': 5, 'weights': 'distance', 'metric': 'manhattan'}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.8632
+  - F1 score: 0.8641
+  - Precision: 0.8657
+  - Recall: 0.8646
+
+Tiempo total: 996.77 segundos
+----------------------
+
+14 procesadores
+Iniciando búsqueda para KNN...
+Generando combinaciones de hiperparámetros para KNN...
+Iniciando cómputo en paralelo con 36 tareas...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 36/36 [25:38<00:00, 42.74s/it]
+
+--- RESULTADOS KNN ---
+Mejores Hiperparámetros: {'n_neighbors': 5, 'weights': 'distance', 'metric': 'manhattan'}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.8632
+  - F1 score: 0.8641
+  - Precision: 0.8657
+  - Recall: 0.8646
+
+Tiempo total: 1539.42 segundos
+----------------------
