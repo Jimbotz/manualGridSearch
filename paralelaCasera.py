@@ -85,8 +85,8 @@ if __name__ == '__main__':
     print("Iniciando búsqueda para Random Forest...")
     
     hiperparametrosRf = {
-        'n_estimators': [100, 150, 200],
-        'max_depth': [10, 20],
+        'n_estimators': [100, 150, 200, 250],
+        'max_depth': [10, 20, None],
         'min_samples_split': [2, 5, 10],
         'min_samples_leaf': [1, 2, 3, 4]
     }
