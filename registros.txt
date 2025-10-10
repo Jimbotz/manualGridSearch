@@ -142,3 +142,46 @@ Métricas del Mejor Modelo:
 
 Tiempo total: 1539.42 segundos
 ----------------------
+
+
+SVM 1 procesador
+niciando cómputo en paralelo con 16 tareas...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [2:01:08<00:00, 454.29s/it]
+
+--- RESULTADOS SVM ---
+Mejores Hiperparámetros: {'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.9004
+  - F1 score: 0.9010
+  - Precision: 0.9009
+  - Recall: 0.9017
+
+Tiempo total: 7268.82 segundos
+----------------------
+
+Con 4 procesadores:
+--- RESULTADOS SVM ---
+Mejores Hiperparámetros: {'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.9004
+  - F1 score: 0.9010
+  - Precision: 0.9009
+  - Recall: 0.9017
+
+Tiempo total: 3425.99 segundos
+----------------------
+
+Con 8 procesadores
+--- RESULTADOS SVM ---
+Mejores Hiperparámetros: {'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.9004
+  - F1 score: 0.9010
+  - Precision: 0.9009
+  - Recall: 0.9017
+
+Tiempo total: 3958.26 segundos
+----------------------
