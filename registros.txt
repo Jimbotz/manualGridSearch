@@ -185,3 +185,16 @@ Métricas del Mejor Modelo:
 
 Tiempo total: 3958.26 segundos
 ----------------------
+
+Con 14 procesadores
+--- RESULTADOS SVM ---
+Mejores Hiperparámetros: {'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}
+
+Métricas del Mejor Modelo:
+  - Accuracy: 0.9004
+  - F1 score: 0.9010
+  - Precision: 0.9009
+  - Recall: 0.9017
+
+Tiempo total: 4493.16 segundos
+----------------------

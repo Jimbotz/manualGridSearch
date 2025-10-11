@@ -17,7 +17,7 @@ import time
 
 # =========================== CONFIGURACIÓN ====================================
 # Define la cantidad de procesadores que se usarán para el cómputo en paralelo
-nProcesos = 8
+nProcesos = 14
 
 # ======================= FUNCIONES DE EVALUACIÓN ==============================
 def evaluarRf(args):
