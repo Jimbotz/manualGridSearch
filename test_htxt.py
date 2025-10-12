@@ -31,7 +31,7 @@ def compute_metrics(y_true, y_pred):
         'f1': f1_score(y_true, y_pred, average='macro', zero_division=0)
     }
 
-# ------------------ Random Forest ------------------
+# Random Forest 
 rf_params = {'n_estimators': 250, 'max_depth': None,
              'min_samples_split': 2, 'min_samples_leaf': 1,
              'random_state': 42}
@@ -44,14 +44,14 @@ y_pred_rf = rf.predict(X)
 rf_time = time.time() - start_time
 rf_metrics = compute_metrics(y, y_pred_rf)
 
-print("\n--- RANDOM FOREST ---")
+print("\n\t-> RANDOM FOREST ")
 print(f"Tiempo (s): {rf_time:.2f}")
 print(f"Accuracy: {rf_metrics['accuracy']:.4f}")
 print(f"Precision: {rf_metrics['precision']:.4f}")
 print(f"Recall: {rf_metrics['recall']:.4f}")
 print(f"F1: {rf_metrics['f1']:.4f}")
 
-# ------------------ KNN ------------------
+# KNN 
 knn_params = {'n_neighbors': 5, 'weights': 'distance', 'metric': 'manhattan'}
 knn = KNeighborsClassifier(**knn_params)
 
@@ -61,14 +61,14 @@ y_pred_knn = knn.predict(X_scaled)
 knn_time = time.time() - start_time
 knn_metrics = compute_metrics(y, y_pred_knn)
 
-print("\n--- KNN ---")
+print("\n\t-> KNN ")
 print(f"Tiempo (s): {knn_time:.2f}")
 print(f"Accuracy: {knn_metrics['accuracy']:.4f}")
 print(f"Precision: {knn_metrics['precision']:.4f}")
 print(f"Recall: {knn_metrics['recall']:.4f}")
 print(f"F1: {knn_metrics['f1']:.4f}")
 
-# ------------------ SVM ------------------
+# SVM 
 svm_params = {'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}
 svm = SVC(**svm_params)
 
@@ -78,7 +78,7 @@ y_pred_svm = svm.predict(X_scaled)
 svm_time = time.time() - start_time
 svm_metrics = compute_metrics(y, y_pred_svm)
 
-print("\n--- SVM ---")
+print("\n\t-> SVM ")
 print(f"Tiempo (s): {svm_time:.2f}")
 print(f"Accuracy: {svm_metrics['accuracy']:.4f}")
 print(f"Precision: {svm_metrics['precision']:.4f}")
