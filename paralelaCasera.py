@@ -70,7 +70,7 @@ def evaluarKnn(args):
     parametros, xTrain, xTest, yTrain, yTest = args
     
     # Se crea el modelo KNN con los parámetros especificados
-    knn = KNeighborsClassifier(n_jobs=1, **parametros)
+    knn = KNeighborsClassifier(**parametros)
     knn.fit(xTrain, yTrain)
     prediccion = knn.predict(xTest)
     
