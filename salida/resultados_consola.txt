@@ -1,19 +1,19 @@
-[36m
-[+] [0mLeyendo archivo de entrenamiento...
-[35m
-[+] [0mEjecutando 10 repeticiones por modelo...
+[36m
+[+] [0mLeyendo archivo de entrenamiento...
+[35m
+[+] [0mEjecutando 10 repeticiones por modelo...
 
-[36m
+[36m
 [+] Ejecutando Random Forest...
-[0m
-[36m
+[0m
+[36m
 [+] Ejecutando SVM...
-[0m
-[36m
+[0m
+[36m
 [+] Ejecutando KNN...
-[0m
-[32m
-=== Resultados Finales ===[0m
+[0m
+[32m
+=== Resultados Finales ===[0m
 
 Random Forest:
   Media Accuracy: 0.8829
@@ -32,5 +32,5 @@ KNN:
   Varianza: 5e-06
   Desviación estándar: 0.002341
   Tiempo total: 9134.94 seg
-[36m
+[36m
 [+] Resultados guardados en la carpeta 'salida'.
