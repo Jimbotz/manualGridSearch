@@ -1,0 +1,36 @@
+[36m
+[+] [0mLeyendo archivo de entrenamiento...
+[35m
+[+] [0mEjecutando 10 repeticiones por modelo...
+
+[36m
+[+] Ejecutando Random Forest...
+[0m
+[36m
+[+] Ejecutando SVM...
+[0m
+[36m
+[+] Ejecutando KNN...
+[0m
+[32m
+=== Resultados Finales ===[0m
+
+Random Forest:
+  Media Accuracy: 0.8585
+  Varianza: 8.2e-05
+  Desviación estándar: 0.009065
+  Tiempo total: 252.73 seg
+
+SVM:
+  Media Accuracy: 0.8721
+  Varianza: 5.2e-05
+  Desviación estándar: 0.007213
+  Tiempo total: 246.76 seg
+
+KNN:
+  Media Accuracy: 0.8288
+  Varianza: 9.4e-05
+  Desviación estándar: 0.009716
+  Tiempo total: 237.57 seg
+[36m
+[+] Resultados guardados en la carpeta 'salida'.
