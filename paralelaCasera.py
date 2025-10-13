@@ -23,7 +23,7 @@ nProcesos = 14
 def evaluarRf(args):
     """Evalúa una combinación de hiperparámetros para Random Forest."""
     parametros, xTrain, xTest, yTrain, yTest = args
-    rf = RandomForestClassifier(random_state=42, n_jobs=1, **parametros)
+    rf = RandomForestClassifier(random_state=42, **parametros)
     rf.fit(xTrain, yTrain)
     prediccion = rf.predict(xTest)
     
