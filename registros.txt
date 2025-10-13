@@ -198,3 +198,13 @@ Métricas del Mejor Modelo:
 
 Tiempo total: 4493.16 segundos
 ----------------------
+
+
+
+resultados del analisisi:
+ /home/jimbotz/anaconda3/bin/python "/home/jimbotz/Desktop/Universidad/Sexto semestre/Palalerizacion/pGridSearch/analisis.py"
+Random Forest: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [03:59<00:00, 23.93s/it]
+/home/jimbotz/Desktop/Universidad/Sexto semestre/Palalerizacion/pGridSearch/analisis.py:137: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df_detalle = pd.concat([df_detalle, pd.DataFrame({
+SVM: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [22:10<00:00, 133.10s/it]
+KNN: 100%|████████████████████████████████████████████████████████████████

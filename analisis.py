@@ -45,7 +45,7 @@ mejores_params_knn = {'n_neighbors': 5, 'metric': 'manhattan'}
 n_reps = 10
 
 # Procesos por modelo
-procs_rf = 12
+procs_rf = 14
 procs_svm = 4
 procs_knn = 8
 

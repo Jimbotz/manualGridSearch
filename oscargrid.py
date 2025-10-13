@@ -48,8 +48,8 @@ def menu_principal(df):
 
         # Diccionario de hiperparámetros
         hiperparametros = {
-            'kernel': ['linear', 'rbf', 'poly', 'sigmoid'],
-            'C': [0.1, 1, 10, 100],
+            'kernel': ['linear', 'rbf', 'poly'],
+            'C': [0.1, 1, 10],
             'gamma': ['scale', 'auto']
         }
 
@@ -176,4 +176,82 @@ if __name__ == '__main__':
     print(f"Archivo leído: {archivo}")
 
     # Llamada a función de menú
-    menu_principal(df)
+    # menu_principal(df)
+
+    # ==============================
+    print(Fore.CYAN + "\n[+] " + Style.RESET_ALL, end='')
+    print("Leyendo archivo de prueba para evaluación final...")
+
+    df_test = pd.read_csv('./Fashion_MNIST/fashion-mnist_test.csv')
+    x_test = df_test.drop(columns='label')
+    y_test = df_test['label']
+
+    # Mejores hiperparámetros encontrados
+    mejores_params_rf = {'max_depth': 30, 'n_estimators': 250,
+                         'min_samples_split': 2, 'min_samples_leaf': 1}
+    mejores_params_svm = {'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}
+    mejores_params_knn = {'n_neighbors': 5, 'metric': 'manhattan'}
+
+    # Número de repeticiones
+    n_reps = 10
+
+    print(Fore.MAGENTA + "\n[+] " + Style.RESET_ALL +
+          f"Ejecutando {n_reps} repeticiones por modelo...\n")
+
+    resultados = {}
+
+    # Random Forest
+    accs_rf = []
+    for i in tqdm(range(n_reps), desc="Random Forest"):
+        x_train, _, y_train, _ = train_test_split(
+            x_test, y_test, train_size=0.8, random_state=i)
+        model = RandomForestClassifier(**mejores_params_rf, random_state=i)
+        model.fit(x_train, y_train)
+        pred = model.predict(x_test)
+        accs_rf.append(accuracy_score(y_test, pred))
+
+    resultados['Random Forest'] = {
+        'media': round(pd.Series(accs_rf).mean(), 4),
+        'varianza': round(pd.Series(accs_rf).var(), 6),
+        'desviacion': round(pd.Series(accs_rf).std(), 6)
+    }
+
+    # SVM
+    accs_svm = []
+    for i in tqdm(range(n_reps), desc="SVM"):
+        x_train, _, y_train, _ = train_test_split(
+            x_test, y_test, train_size=0.8, random_state=i)
+        model = SVC(**mejores_params_svm)
+        model.fit(x_train, y_train)
+        pred = model.predict(x_test)
+        accs_svm.append(accuracy_score(y_test, pred))
+
+    resultados['SVM'] = {
+        'media': round(pd.Series(accs_svm).mean(), 4),
+        'varianza': round(pd.Series(accs_svm).var(), 6),
+        'desviacion': round(pd.Series(accs_svm).std(), 6)
+    }
+
+    # KNN
+    accs_knn = []
+    for i in tqdm(range(n_reps), desc="KNN"):
+        x_train, _, y_train, _ = train_test_split(
+            x_test, y_test, train_size=0.8, random_state=i)
+        model = KNeighborsClassifier(**mejores_params_knn)
+        model.fit(x_train, y_train)
+        pred = model.predict(x_test)
+        accs_knn.append(accuracy_score(y_test, pred))
+
+    resultados['KNN'] = {
+        'media': round(pd.Series(accs_knn).mean(), 4),
+        'varianza': round(pd.Series(accs_knn).var(), 6),
+        'desviacion': round(pd.Series(accs_knn).std(), 6)
+    }
+
+    # Resultados finales
+    print(Fore.GREEN + "\n=== Resultados Finales ===" + Style.RESET_ALL)
+    for modelo, stats in resultados.items():
+        print(f"\n{modelo}:")
+        print(f"  Media: {stats['media']}")
+        print(f"  Varianza: {stats['varianza']}")
+        print(f"  Desviación estándar: {stats['desviacion']}")
